@@ -8,12 +8,18 @@ const router = createRouter({
     {
       path: '/',
       name: 'today',
-      component: TodayView
+      component: TodayView,
+      meta: {
+        title: 'Today'
+      }
     },
     {
       path: '/edit',
       name: 'edit',
-      component: EditView
+      component: EditView,
+      meta: {
+        title: 'Edit'
+      }
     }
   ]
 })
