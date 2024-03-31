@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { useStorage } from '@vueuse/core'
+import { renderMarkdown } from './helpers'
 
 export type TemplateTask = {
   id: string
@@ -8,6 +9,7 @@ export type TemplateTask = {
 
 export type Task = TemplateTask & {
   done: boolean
+  html: string
 }
 
 type DoneState = Record<TemplateTask['id'], boolean>
@@ -22,6 +24,7 @@ export const useTaskStore = defineStore('template', {
     tasks(): Task[] {
       return this.templateTasks.map((task) => ({
         ...task,
+        html: renderMarkdown(task.label),
         done: this.todayState[task.id] || false
       }))
     }

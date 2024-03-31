@@ -18,7 +18,7 @@ const taskStore = useTaskStore()
           :id="task.id"
           @input="() => taskStore.toggleTask(task.id)"
         />&nbsp;
-        <label :for="task.id">{{ task.label }}</label>
+        <label :for="task.id" v-html="task.html" />
       </li>
     </ul>
   </main>
