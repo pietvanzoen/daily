@@ -28,3 +28,18 @@ main {
 .hidden {
   display: none;
 }
+
+button {
+  padding: 0 0.5em;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  margin-bottom: 0.5em;
+}

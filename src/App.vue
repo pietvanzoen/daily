@@ -22,4 +22,10 @@ const router = useRouter()
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+</style>

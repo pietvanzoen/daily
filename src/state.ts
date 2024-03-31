@@ -43,7 +43,7 @@ export const useTaskStore = defineStore('template', {
 
     setLabel(id: Task['id'], label: string) {
       const task = this.templateTasks.find((task) => task.id === id)
-      if (task) task.label = label
+      if (task) task.label = label.trim()
     },
 
     toggleTask(id: Task['id']) {
