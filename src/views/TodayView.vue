@@ -7,7 +7,7 @@ const taskStore = useTaskStore()
   <section>
     <ul class="task-list">
       <li v-for="task in taskStore.tasks" :key="task.id">
-        <label>
+        <label :for="task.id" class="task">
           <input
             type="checkbox"
             :checked="task.done"
@@ -20,17 +20,3 @@ const taskStore = useTaskStore()
     </ul>
   </section>
 </template>
-
-<style scoped>
-.task-list input[type='checkbox'] {
-  opacity: 0;
-}
-
-.task-list label {
-  cursor: pointer;
-}
-
-.task-list input[type='checkbox']:checked + * {
-  text-decoration: line-through;
-}
-</style>

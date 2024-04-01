@@ -7,7 +7,7 @@ const taskStore = useTaskStore()
 <template>
   <section>
     <ul>
-      <li v-for="task in taskStore.tasks" :key="task.id">
+      <li v-for="task in taskStore.tasks" :key="task.id" class="task">
         <fieldset>
           <input
             type="text"
@@ -29,12 +29,13 @@ input {
 }
 fieldset {
   position: relative;
-  padding-right: 2rem;
+  padding-right: 1rem;
 }
 fieldset button {
   position: absolute;
   height: 100%;
-  width: 2rem;
+  width: 1rem;
+  right: 0;
   text-align: center;
 }
 </style>

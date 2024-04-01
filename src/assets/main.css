@@ -8,13 +8,13 @@
   /* Colors */
   --main-bg-color: #fffbe6;
   --main-text-color: #333;
-  --main-link-color: #007bff;
-  --main-link-color-hover: #0056b3;
+  --main-link-color: rgba(243, 254, 61, 0);
+  --main-link-color-hover: rgba(243, 254, 61, 0.8);
   --line-color: #85abfa;
 
   /* Spacing */
   --font-size: 37px;
-  --line-position: .9rem;
+  --line-position: 0.87rem;
   --line-height: 1rem;
   --left-margin: 2.5rem;
   --left-gutter: 0.5rem;
@@ -47,10 +47,10 @@
   Remove list styles (bullets/numbers)
   in case you use it with normalize.css
 */
-/* ol, */
-/* ul { */
-/*   list-style: none; */
-/* } */
+ol,
+ul {
+  list-style: none;
+}
 
 /* For images to not be able to exceed their container */
 img {
@@ -105,22 +105,50 @@ button {
   font-weight: bold;
   cursor: pointer;
 }
-button:hover {
+button,
+a {
   text-decoration: underline;
+  background-color: var(--main-link-color);
+  transition: background-color 0.2s ease-in-out;
+}
+a:hover,
+button:hover {
+  background-color: var(--main-link-color-hover);
 }
 
-ul {
-  list-style: none;
-  padding-left: 1em;
-}
-ul li {
+.task {
+  padding-left: 0.8rem;
   position: relative;
 }
-ul li:before {
+.task:before {
   content: '•';
   position: absolute;
-  left: -1em;
-  margin-right: 0.5em;
+  left: 0;
+  top: 0.11em;
+}
+
+.task input[type='checkbox'] {
+  opacity: 0;
+}
+.task input[type='checkbox'] + span:before {
+  content: '';
+  height: 2px;
+  width: 0;
+  background-color: var(--main-text-color);
+  display: block;
+  top: 50%;
+  left: -0.1rem;
+  position: absolute;
+  transition: width 0.2s ease-in-out;
+}
+label.task:hover input[type='checkbox'] + span:before {
+  width: 0.4rem;
+}
+label.task input[type='checkbox']:checked + span:before {
+  width: 110%;
+}
+label.task {
+  cursor: pointer;
 }
 
 h1,
@@ -167,6 +195,9 @@ main > article {
 
 main {
   border-top-right-radius: 1rem;
+}
+main,
+main > article {
   border-bottom-right-radius: 1rem;
 }
 
@@ -219,12 +250,4 @@ main > header:after {
 main > header > * {
   position: relative;
   z-index: 2;
-}
-
-
-a {
-  text-decoration: underline;
-}
-a:hover {
-  text-decoration: none;
 }
