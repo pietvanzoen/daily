@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Learning Curve';
+  src: url('learning-curve.ttf') format('truetype');
+  font-weight: normal;
+}
+
 :root {
   /* Colors */
   --main-bg-color: #fffbe6;
@@ -7,10 +13,10 @@
   --line-color: #85abfa;
 
   /* Spacing */
-  --font-size: 25px;
-  --line-height: 1.6rem;
-  --right-margin: 3rem;
-  --right-gutter: 0.5rem;
+  --font-size: 35px;
+  --line-height: 1.2rem;
+  --right-margin: 2.5rem;
+  --right-gutter: 1rem;
   --left-margin: 1rem;
 }
 
@@ -65,7 +71,7 @@ button,
 input,
 textarea,
 select {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Learning Curve', sans-serif;
   font-optical-sizing: auto;
   font-size: var(--font-size);
   margin: 0;
@@ -102,8 +108,17 @@ button:hover {
 }
 
 ul {
-  list-style: disc;
+  list-style: none;
   padding-left: 1em;
+}
+ul li {
+  position: relative;
+}
+ul li:before {
+  content: '•';
+  position: absolute;
+  left: -1em;
+  margin-right: 0.5em;
 }
 
 h1,
@@ -139,6 +154,14 @@ main {
   background-size: 100% var(--line-height);
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
   position: relative;
+}
+
+main > header,
+main {
+  border-top-right-radius: 1rem;
+}
+main {
+  border-bottom-right-radius: 1rem;
 }
 
 main > header {
