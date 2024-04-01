@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Learning Curve';
-  src: url('learning-curve.ttf') format('truetype');
+  src: url('/learning-curve.ttf') format('truetype');
   font-weight: normal;
 }
 
