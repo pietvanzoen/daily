@@ -13,16 +13,18 @@
   --line-color: #85abfa;
 
   /* Spacing */
-  --font-size: 35px;
-  --line-height: 1.2rem;
-  --right-margin: 2.5rem;
+  --font-size: 37px;
+  --line-position: .9rem;
+  --line-height: 1rem;
+  --left-margin: 2.5rem;
+  --left-gutter: 0.5rem;
   --right-gutter: 1rem;
-  --left-margin: 1rem;
+  --header-height: calc((var(--line-height) * 2.5) - 4px);
 }
 
 @media (max-width: 768px) {
   :root {
-    --right-margin: 2rem;
+    --left-margin: 2rem;
   }
 }
 
@@ -142,6 +144,14 @@ html {
 main {
   min-height: 80vh;
   background-color: var(--main-bg-color);
+  position: relative;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+main > article {
+  flex: 1;
   background: linear-gradient(
     to bottom,
     #fffbe6,
@@ -152,15 +162,11 @@ main {
   /* The rectangle in which to repeat. 
    It can be fully wide in this case */
   background-size: 100% var(--line-height);
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
-  position: relative;
+  background-position-y: var(--line-position);
 }
 
-main > header,
 main {
   border-top-right-radius: 1rem;
-}
-main {
   border-bottom-right-radius: 1rem;
 }
 
@@ -172,7 +178,7 @@ main > header {
 }
 main > header,
 main > article {
-  padding-left: calc(var(--right-margin) + var(--right-gutter));
+  padding-left: calc(var(--left-margin) + var(--left-gutter));
   padding-right: var(--right-gutter);
 }
 main > article {
@@ -186,20 +192,35 @@ main:before {
   position: absolute;
   height: 100%;
   width: 2px;
-  left: var(--right-margin);
+  left: var(--left-margin);
   top: 0;
   background-color: #e78587;
   z-index: 1;
 }
 
 main > header {
-  height: calc((var(--line-height) * 2) - 4px);
+  height: var(--header-height);
   width: 100%;
   top: 0;
   left: 0;
-  background-color: var(--main-bg-color);
+  position: relative;
+  padding-bottom: 8px;
+}
+main > header:after {
+  content: '';
+  position: absolute;
+  height: 8px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-top: 2px solid var(--line-color);
   border-bottom: 2px solid var(--line-color);
 }
+main > header > * {
+  position: relative;
+  z-index: 2;
+}
+
 
 a {
   text-decoration: underline;
