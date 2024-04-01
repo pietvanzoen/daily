@@ -14,6 +14,12 @@
   --left-margin: 1rem;
 }
 
+@media (max-width: 768px) {
+  :root {
+    --right-margin: 2rem;
+  }
+}
+
 /*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
 
 /* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
@@ -74,8 +80,11 @@ select {
   box-sizing: border-box;
 }
 
+body {
+  padding: 1rem 0.5rem;
+}
 main {
-  margin: 1rem auto;
+  margin: 0 auto;
   max-width: 800px;
   line-height: var(--line-height);
 }
