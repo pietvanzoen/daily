@@ -18,14 +18,8 @@ const router = useRouter()
         >
       </nav>
     </header>
-    <RouterView />
+    <article>
+      <RouterView />
+    </article>
   </main>
 </template>
-
-<style scoped>
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-</style>
