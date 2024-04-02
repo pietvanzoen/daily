@@ -25,7 +25,9 @@
 
 @media (max-width: 768px) {
   :root {
+    --font-size: 30px;
     --left-margin: 2rem;
+    --header-height: calc((var(--line-height) * 3) - 4px);
   }
 }
 
