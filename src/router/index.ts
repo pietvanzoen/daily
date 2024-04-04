@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EditView from '@/views/EditView.vue'
-import TodayView from '@/views/TodayView.vue'
+import TodoView from '@/views/TodoView.vue'
 
 const intl = new Intl.DateTimeFormat('en', { dateStyle: 'full' })
 const todayTitle = intl.format(new Date())
@@ -10,18 +9,16 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'today',
-      component: TodayView,
+      name: 'todo',
+      component: TodoView,
       meta: {
         title: todayTitle
       }
     },
     {
-      path: '/edit',
-      name: 'edit',
-      component: EditView,
-      meta: {
-        title: 'Edit'
+      path: '/:catchAll(.*)*',
+      redirect: {
+        name: 'todo'
       }
     }
   ]
