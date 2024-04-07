@@ -41,14 +41,13 @@ const deleteTask = async (id: Task['id'], payload: KeyboardEvent) => {
       <li v-for="task in taskStore.tasks" :key="task.id">
         <label :for="task.id" class="task">
           <input
-            v-if="editingTaskId !== task.id"
             type="checkbox"
             :checked="task.done"
             :id="task.id"
             @input="() => taskStore.toggleTask(task.id)"
           />
           <input
-            v-else
+            v-if="editingTaskId === task.id"
             class="task--label-input"
             :id="`task-${task.id}`"
             type="text"
@@ -59,7 +58,11 @@ const deleteTask = async (id: Task['id'], payload: KeyboardEvent) => {
             @keydown.backspace="deleteTask(task.id, $event)"
             @blur="editingTaskId = null"
           />
-          <span v-if="editingTaskId !== task.id" class="task--label" v-html="task.html"></span>
+          <span
+            v-if="editingTaskId !== task.id"
+            class="task--label truncate"
+            v-html="task.html"
+          ></span>
           <button
             v-if="editingTaskId !== task.id"
             class="task--edit"
